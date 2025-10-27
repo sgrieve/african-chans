@@ -3,7 +3,7 @@
 #$ -cwd
 #$ -j y
 #$ -N afr-chan
-#$ -o /data/Geog-c2s2/africa/
+#$ -o /data/scratch/faw513/africa/
 #$ -pe smp 1
 #$ -l h_vmem=128G
 #$ -l h_rt=13:0:0

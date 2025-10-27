@@ -8,7 +8,7 @@
 # $6 - max basin size in pixels
 
 # Set up paths so we have a folder for each sub zone
-cd /data/Geog-c2s2/africa/
+cd /data/scratch/faw513/africa/
 mkdir $1
 cd $1
 
@@ -30,7 +30,7 @@ rm *.tif
 rm *.vrt
 
 # Run the LSD code (on HPC)
-# /data/home/faw513/LSDTopoTools_ChiMudd2014/driver_functions_MuddChi2014/gdbm_analysis.exe /data/Geog-c2s2/african-chans/$1/ $1 /data/Geog-c2s2/african-chans/$1/ $1 $4 $5 $6
+# /data/home/faw513/LSDTopoTools_ChiMudd2014/driver_functions_MuddChi2014/gdbm_analysis.exe /data/scratch/faw513/africa/$1/ $1 /data/Geog-c2s2/african-chans/$1/ $1 $4 $5 $6
 
 # Extract the rivers from the output data
 # python /data/home/faw513/african-chans/postprocessing/export_rivers.py $1_RawBasins.csv
