@@ -13,10 +13,10 @@ mkdir $1
 cd $1
 
 # Download the tiles we need
-python /data/home/faw513/african-chans/processing/get_urls.py $1.shp | xargs -n 1 -P 8 -I FILEPATH /data/home/faw513/aws/v2/current/bin/aws s3 cp FILEPATH . --endpoint-url https://opentopography.s3.sdsc.edu --no-sign-request
+#python /data/home/faw513/african-chans/processing/get_urls.py $1.shp | xargs -n 1 -P 8 -I FILEPATH /data/home/faw513/aws/v2/current/bin/aws s3 cp FILEPATH . --endpoint-url https://opentopography.s3.sdsc.edu --no-sign-request
 
 # Build virtual raster from tiles
-gdalbuildvrt input.vrt *.tif
+#gdalbuildvrt input.vrt *.tif
 
 # Clip the merged raster using the corresponding shapefile
 gdalwarp -multi -wo 'NUM_THREADS=val/ALL_CPUS' -srcnodata -32768 -dstnodata -9999 -cutline /data/home/faw513/african-chans/basin/$1.shp -crop_to_cutline -of ENVI input.vrt tmp.bil
