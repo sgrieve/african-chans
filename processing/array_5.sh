@@ -5,16 +5,16 @@
 #$ -N afr-chan
 #$ -o /data/scratch/faw513/africa/
 #$ -pe smp 1
-#$ -l h_vmem=128G
-#$ -l h_rt=13:0:0
+#$ -l h_vmem=64G
+#$ -l h_rt=1:0:0
 #$ -t 1-1
 #$ -tc 100
 
-module load gdal/2.3.1
-module load gcc/6.3.0
-module load python/3.6.3
-module load proj/5.2.0
-module load postgres/15.1
+module load gdal
+#module load gcc/6.3.0
+module load python
+#module load proj
+module load postgresql/
 
 # Using the Tokunaga environment as it has rasterio installed
 source /data/home/faw513/toku-env/bin/activate
