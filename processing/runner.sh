@@ -25,9 +25,9 @@ gdalwarp -multi -wo 'NUM_THREADS=val/ALL_CPUS' -srcnodata -32768 -dstnodata -999
 gdalwarp -t_srs '+proj=utm +zone='$2' +datum=WGS84 +'$3'' -of ENVI -ot Float32 tmp.bil $1.bil
 
 # Tidy up some temp files
-rm tmp.*
-rm *.tif
-rm *.vrt
+#rm tmp.*
+#rm *.tif
+#rm *.vrt
 
 # Run the LSD code (on HPC)
 # /data/home/faw513/LSDTopoTools_ChiMudd2014/driver_functions_MuddChi2014/gdbm_analysis.exe /data/scratch/faw513/africa/$1/ $1 /data/Geog-c2s2/african-chans/$1/ $1 $4 $5 $6
