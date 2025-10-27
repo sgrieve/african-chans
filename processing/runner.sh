@@ -30,12 +30,12 @@ rm *.tif
 rm *.vrt
 
 # Run the LSD code (on HPC)
-/data/home/faw513/LSDTopoTools_ChiMudd2014/driver_functions_MuddChi2014/gdbm_analysis.exe /data/Geog-c2s2/african-chans/$1/ $1 /data/Geog-c2s2/african-chans/$1/ $1 $4 $5 $6
+# /data/home/faw513/LSDTopoTools_ChiMudd2014/driver_functions_MuddChi2014/gdbm_analysis.exe /data/Geog-c2s2/african-chans/$1/ $1 /data/Geog-c2s2/african-chans/$1/ $1 $4 $5 $6
 
 # Extract the rivers from the output data
-python /data/home/faw513/african-chans/postprocessing/export_rivers.py $1_RawBasins.csv
+# python /data/home/faw513/african-chans/postprocessing/export_rivers.py $1_RawBasins.csv
 
 # Remove the raster files
-rm $1.bil
-rm $1.hdr
-rm $1.bil.aux.xml
+# rm $1.bil
+# rm $1.hdr
+# rm $1.bil.aux.xml
