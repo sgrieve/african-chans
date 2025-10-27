@@ -1,0 +1,18 @@
+{
+    "HAD_basin.shp": {
+        "bbox": [
+            14.958333333333195,
+            -5.650000000000094,
+            51.291666666666345,
+            32.19173883796191
+        ],
+        "south_max": false,
+        "south_min": true,
+        "utm_zone": [
+            36,
+            "south"
+        ],
+        "west_max": false,
+        "west_min": false
+    }
+}
