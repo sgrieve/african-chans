@@ -101,48 +101,6 @@ int main (int nNumberofArgs,char *argv[])
 
   LSDRaster filled_topography = topography_raster.fill(min_slope_for_fill);
 
-
-  // Now we do the diff between the filled and unfilled DEM
-  Array2D<float> diff(filled_topography.get_NRows(), filled_topography.get_NCols(),filled_topography.get_NoDataValue());
-
-  for (int i=0; i < filled_topography.get_NRows(); ++i){
-    for (int j=0; j < filled_topography.get_NCols(); ++j){
-      float diff_val = filled_topography.get_data_element(i,j) - topography_raster.get_data_element(i,j);
-
-      if (diff_val > 0.0){
-        diff[i][j] = diff_val;
-      }
-    }
-  }
-
-  vector<float> flat_diff = Flatten_Without_Nodata(diff, topography_raster.get_NoDataValue());
-
-  vector<size_t> index_map;
-  vector<float> data_sorted;
-  matlab_float_sort(flat_diff, data_sorted, index_map);
-
-  float diff_pc = get_percentile(data_sorted, 98.0);  // >2 standard devs of the mean
-
-  string deltas_pc_name = OUT_DIR + OUT_ID + "_pit_id.csv";
-
-  ofstream WritePitData;
-  WritePitData.open(deltas_pc_name.c_str());
-
-  for (int i=0; i < filled_topography.get_NRows(); ++i){
-    for (int j=0; j < filled_topography.get_NCols(); ++j){
-
-      if (diff[i][j] > diff_pc){
-        WritePitData << i << "," << j << endl;
-
-      }
-
-    }
-  }
-
-  WritePitData.close();
-
-  // End of the diffing between the 2 DEMs
-
   cout << "\t Flow routing..." << endl;
   // get a flow info object
   LSDFlowInfo FlowInfo(boundary_conditions,filled_topography);
